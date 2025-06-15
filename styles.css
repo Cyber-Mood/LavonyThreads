@@ -1,0 +1,545 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #8A9A5B; /* Sage Green */
+    --secondary: #F8C7CC;  /* Pink  */
+    --text: #333333; /* Charcoal Gray */
+    --background: #F8F1E9; /* Cream White */
+    --section-bg: #FDFAF6; /* Section Cream */
+    --accent: #F8BCBF; /* Oh wait another Pink? */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
+    background-color: var(--background);
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(to right, var(--primary), #5E8263);
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+    color: var(--text);
+}
+
+.logo img {
+    width: 40px; 
+    height: 40px;
+    vertical-align: middle; 
+}
+
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #014421;
+}
+
+/* Base section styling */
+section {
+    position: relative;
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--section-bg);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.slideshow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-section h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4em;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in;
+}
+
+.hero-section p {
+    font-size: 1.5em;
+    max-width: 600px;
+    animation: fadeIn 1s ease-in 0.3s forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--accent);
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 25px;
+    margin-top: 20px;
+    border: 2px solid var(--primary);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--text);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+.product-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5em;
+    padding: 15px;
+    color: var(--text);
+}
+
+.product-card p {
+    padding: 0 15px 15px;
+    color: #666;
+}
+
+.product-card button {
+    margin: 10px;
+    padding: 8px 15px;
+    background: var(--accent);
+    color: var(--text);
+    border: 2px solid var(--primary);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.product-card button:hover {
+    background: var(--secondary);
+    border-color: var(--secondary);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+}
+
+.modal-content img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text);
+}
+
+.cart {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+.cart.active {
+    display: block;
+}
+
+.cart h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.carousel {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.testimonial {
+    display: none;
+    padding: 20px;
+    text-align: center;
+}
+
+.testimonial.active {
+    display: block;
+    animation: slideIn 0.5s ease-in;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+.newsletter-section form {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter-section input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+}
+
+.newsletter-section button {
+    padding: 10px 20px;
+    background: var(--accent);
+    color: var(--text);
+    border: 2px solid var(--primary);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.newsletter-section button:hover {
+    background: var(--secondary);
+    border-color: var(--secondary);
+}
+
+.contact-section form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-section input, .contact-section textarea {
+    padding: 10px;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contact-section input.error, .contact-section textarea.error {
+    border-color: #d32f2f;
+}
+
+.contact-section .error-message {
+    color: #d32f2f;
+    font-size: 0.9em;
+    display: none;
+}
+
+.contact-section button {
+    padding: 12px;
+    background: var(--accent);
+    color: var(--text);
+    border: 2px solid var(--primary);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.contact-section button:hover {
+    background: var(--secondary);
+    border-color: var(--secondary);
+}
+
+.faq-section .accordion {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.faq-section .accordion-item {
+    border-bottom: 1px solid var(--primary);
+}
+
+.faq-section .accordion-header {
+    padding: 15px;
+    cursor: pointer;
+    background: #fff;
+    transition: background-color 0.3s;
+}
+
+.faq-section .accordion-header:hover {
+    background-color: var(--primary);
+    color: #fff;
+}
+
+.faq-section .accordion-content {
+    display: none;
+    padding: 15px;
+    background: #fff;
+}
+
+.faq-section .accordion-content.active {
+    display: block;
+}
+
+/* Footer Section */
+.footer-section {
+    background: var(--primary);
+    color: var(--text);
+    padding: 20px 20px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.footer-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: var(--secondary);
+}
+
+.footer-section form {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-section input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid var(--text);
+    border-radius: 5px;
+}
+
+.footer-section button {
+    padding: 8px 15px;
+    background: var(--accent);
+    color: var(--text);
+    border: 2px solid var(--primary);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.footer-section button:hover {
+    background: var(--secondary);
+    border-color: var(--secondary);
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.social-icons p {
+    margin: 0;
+    font-weight: 500;
+    font-size: 1em;
+}
+
+.social-icons a i {
+    font-size: 1.4em;
+    color: var(--text);
+    transition: color 0.3s;
+}
+
+.social-icons a:hover i {
+    color: var(--secondary);
+}
+
+.footer-copyright {
+    margin-top: 20px;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5em;
+    }
+    .hero-section p {
+        font-size: 1.2em;
+    }
+    .hamburger {
+        display: block;
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: var(--primary);
+    }
+    nav ul.active {
+        display: flex;
+    }
+    nav ul li {
+        margin: 10px 0;
+        text-align: center;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}

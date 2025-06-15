@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Handcrafted embroidery designs at Lavony Threads">
+    <title>Lavony Threads - Embroidery Boutique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="img/embroidery.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo"><img src="img/embroidery bw.png">Lavony Threads</div>
+            <div class="hamburger">☰</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#cart" onclick="toggleCart()">Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="slideshow">
+            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1598871956222-26b66d6559fe?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1651177571506-6d38447d987b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1734873741744-759ea0a3b3e5?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Lavony Threads</h1>
+            <p>Discover the magic of handcrafted embroidery, weaving stories through delicate threads. Explore our unique designs, from elegant hoops to stylish bags, and let nature-inspired creations bring beauty to your everyday.</p>
+            <a href="#products" class="btn">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products-section">
+        <h2>Our Creations</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1622378134706-4a2194cc9648?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Floral Embroidery Hoop" loading="lazy">
+                <h3>Floral Hoop Art</h3>
+                <p>Delicate floral designs hand-stitched with vibrant threads.</p>
+                <button class="quick-view" onclick="openModal('Floral Hoop Art', 'https://images.unsplash.com/photo-1622378134706-4a2194cc9648?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">Quick View</button>
+                <button onclick="addToCart('Floral Hoop Art')">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="https://plus.unsplash.com/premium_photo-1725456680273-0fce8a50f389?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Embroidered Tote Bag" loading="lazy">
+                <h3>Embroidered Tote</h3>
+                <p>Stylish tote bags with intricate embroidery details.</p>
+                <button class="quick-view" onclick="openModal('Embroidered Tote', 'https://plus.unsplash.com/premium_photo-1725456680273-0fce8a50f389?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">Quick View</button>
+                <button onclick="addToCart('Embroidered Tote')">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="img/butterfly.jpg" alt="Butterfly Embroidery" loading="lazy">
+                <h3>Butterfly on a Flower</h3>
+                <p>A delicate butterfly adorned with flowers and roses.</p>
+                <button class="quick-view" onclick="openModal('Custom Designs', 'img/butterfly.jpg')">Quick View</button>
+                <button onclick="addToCart('Butterfly on a Flower')">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="img/tulip.jpg" alt="Custom Embroidery" loading="lazy">
+                <h3>Custom Designs</h3>
+                <p>Personalized embroidery for special gifts and occasions.</p>
+                <button class="quick-view" onclick="openModal('Custom Designs', 'img/tulip.jpg')">Quick View</button>
+                <button onclick="addToCart('Custom Designs')">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">×</span>
+            <h3 id="modal-title"></h3>
+            <img id="modal-image" src="" alt="Product Image">
+            <p>Additional details about this beautiful embroidery piece.</p>
+        </div>
+    </div>
+
+    <!-- Cart -->
+    <div id="cart" class="cart">
+        <h3>Your Cart</h3>
+        <div id="cart-items"></div>
+        <button class="btn" onclick="alert('Proceeding to checkout...')">Checkout</button>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <h2>What Our Customers Say</h2>
+        <div class="carousel">
+            <div class="testimonial active">
+                <p>"Absolutely love my custom hoop art! The details are stunning. You got magics in your hands girl!!" - Israt A.</p>
+            </div>
+            <div class="testimonial">
+                <p>"The tote bag is both stylish and durable. Perfect!" - Shanta C.</p>
+            </div>
+            <div class="testimonial">
+                <p>"Yay! The custome order experience was lovely. I got my purse as my likings." - Sadia O.</p>
+            </div>
+            <div class="testimonial">
+                <p>"Sis, loved the tote bag. That matches so much with my vibe. Thank you." - Ilteza U.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="newsletter-section">
+        <h2>Join Our Newsletter</h2>
+        <form>
+            <input type="email" placeholder="Your Email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <h2>About Us</h2>
+        <p>At Lavony Threads, I believe in the beauty of handmade craftsmanship. Every piece is created with passion, blending traditional embroidery techniques with modern designs. From floral hoops to personalized bags, every creation is a labor of love, designed to celebrate. Our mission is to bring joy and elegance to your life through our unique creations.
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <p class="error-message" id="name-error">Please enter your name.</p>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <p class="error-message" id="email-error">Please enter a valid email.</p>
+            <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+            <p class="error-message" id="message-error">Please enter your message.</p>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- FAQs Section -->
+    <section id="faq" class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-header"><b>How long does it take to create a custom embroidery?</b></div>
+                <div class="accordion-content">Custom pieces typically take 7–14 days, depending on complexity. Contact us for a precise timeline!</div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header"><b>What materials do you use?</b></div>
+                <div class="accordion-content">We use high-quality cotton threads and fabrics, ensuring durability and vibrant colors.</div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header"><b>How do I care for my embroidery?</b></div>
+                <div class="accordion-content">Hand wash gently with mild soap and air dry to preserve the stitching and colors.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <section id="footer" class="footer-section">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Lavony Threads</h3>
+                <p>Handcrafted embroidery with love and care by Tanjila.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Stay Updated</h3>
+                <form id="footer-newsletter">
+                    <input type="email" placeholder="Your Email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            <div class="footer-section">
+                <h3>Visit Our Sister Brand</h3>
+                <p>Explore our Travel Site. Book your holidays with us.</p>
+                <a href="https://cyber-mood.github.io/GoLavony/" target="_blank" class="btn"><img src="img/airplane.png"></a>
+            </div>
+        </div>
+        <div class="social-icons">
+            <p>Created By:</p>
+            <a href="https://github.com/Cyber-Mood" target="_blank" aria-label="Github"><i class="fab fa-github"></i></a>
+            <a href="https://github.com/Tanjilase" target="_blank" aria-label="Github"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/mahmud-112ab0255/" target="blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.pinterest.com/alaqeeqm/" target="_blank" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+        </div>
+        <p class="footer-copyright">© 2025 Lavony Threads. All rights reserved.</p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
